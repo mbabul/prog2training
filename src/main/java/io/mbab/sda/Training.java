@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Training {
 
+    public int centuryFromYear(int year) {
+        return 0;
+    }
+
     public String join(Collection<?> list, String delimiter) {
         return null;
     }
@@ -52,5 +56,4 @@ public class Training {
     public Collection<Integer> flatten(List<List<Integer>> nested) {
         return null;
     }
-
 }

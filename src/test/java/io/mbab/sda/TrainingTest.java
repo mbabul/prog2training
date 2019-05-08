@@ -17,6 +17,15 @@ public class TrainingTest {
     }
 
     @Test
+    public void testCenturyFromYear() {
+        assertEquals(20, training.centuryFromYear(1905));
+        assertEquals(1, training.centuryFromYear(8));
+        assertEquals(17, training.centuryFromYear(1700));
+        assertEquals(20, training.centuryFromYear(2000));
+        assertEquals(21, training.centuryFromYear(2019));
+    }
+
+    @Test
     public void testJoin() {
         assertEquals("12345678", training.join(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), ""));
         assertEquals("To nie jest kraj dla starych ludzi", training.join(Arrays.asList("To", "nie", "jest", "kraj", "dla", "starych", "ludzi"), " "));
