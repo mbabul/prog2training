@@ -19,8 +19,8 @@ public class TrainingTest {
     @Test
     public void testJoin() {
         assertEquals("12345678", training.join(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8), ""));
-        assertEquals("To nie jest kraj dla starych ludzi", training.join(Arrays.asList("To", "nie", "jest", "kraj", "dla", "starych ludzi"), " "));
-        assertEquals("To_nie_jest_kraj_dla_starych_ludzi", training.join(Arrays.asList("To", "nie", "jest", "kraj", "dla", "starych ludzi"), "_"));
+        assertEquals("To nie jest kraj dla starych ludzi", training.join(Arrays.asList("To", "nie", "jest", "kraj", "dla", "starych", "ludzi"), " "));
+        assertEquals("To_nie_jest_kraj_dla_starych_ludzi", training.join(Arrays.asList("To", "nie", "jest", "kraj", "dla", "starych", "ludzi"), "_"));
     }
 
     @Test
