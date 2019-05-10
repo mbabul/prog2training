@@ -2,6 +2,7 @@ package io.mbab.sda;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Training {
 
@@ -54,6 +55,14 @@ public class Training {
     }
 
     public Collection<Integer> flatten(List<List<Integer>> nested) {
+        return null;
+    }
+
+    public Collection<String> removeInvalidEmails(Collection<String> emails) {
+        return null;
+    }
+
+    public Object findElement(Object search, Collection<?> elements) {
         return null;
     }
 }

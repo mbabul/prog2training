@@ -111,4 +111,18 @@ public class TrainingTest {
                 Arrays.asList(1, 2, 3, 4, 5, 6),
                 training.flatten(Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6))));
     }
+    @Test
+    public void testRemoveInvalidEmails() {
+        assertIterableEquals(
+                Arrays.asList("jan.kowalski@gmail.com", "waldemar.kiepski@wp.pl"),
+                training.removeInvalidEmails(Arrays.asList("jan.kowalski@gmail.com", "to.nie.email", "waldemar.kiepski@wp.pl", "to.tez.nie.email@")));
+    }
+
+    @Test
+    public void testFindElement() {
+        assertEquals("1", training.findElement("1", Arrays.asList("2", "7", "55", "c", "1")));
+        assertThrows(ElementNotFoundException.class, () -> training.findElement("10", Arrays.asList("2", "7", "55", "c", "1")));
+    }
+
+
 }
