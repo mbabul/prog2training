@@ -60,9 +60,9 @@ public class TrainingTest {
 
     @Test
     public void testConvertNumberToReverseArray() {
-        assertEquals(new int[] {5, 4, 7, 4, 5, 6, 9, 8, 5, 2, 1 }, training.convertNumberToReverseArray(12589654745L));
-        assertEquals(new int[] {0}, training.convertNumberToReverseArray(0));
-        assertEquals(new int[] {6, 5, 4, 3, 2, 1, 1}, training.convertNumberToReverseArray(1123456));
+        assertArrayEquals(new int[] {5, 4, 7, 4, 5, 6, 9, 8, 5, 2, 1 }, training.convertNumberToReverseArray(12589654745L));
+        assertArrayEquals(new int[] {0}, training.convertNumberToReverseArray(0));
+        assertArrayEquals(new int[] {6, 5, 4, 3, 2, 1, 1}, training.convertNumberToReverseArray(1123456));
     }
 
     @Test
@@ -73,8 +73,8 @@ public class TrainingTest {
 
     @Test
     public void testFindCommons() {
-        assertEquals(new int[] {3}, training.findCommons(new int[] {1, 4, 6, 8, 3}, new int[] {0, 5, 3, 7, 2, 9}));
-        assertEquals(new int[] {2, 9}, training.findCommons(new int[] {10, 2, 5, 7, 9}, new int[] {2, 9, 1}));
+        assertArrayEquals(new int[] {3}, training.findCommons(new int[] {1, 4, 6, 8, 3}, new int[] {0, 5, 3, 7, 2, 9}));
+        assertArrayEquals(new int[] {2, 9}, training.findCommons(new int[] {10, 2, 5, 7, 9}, new int[] {2, 9, 1}));
     }
 
     @Test
