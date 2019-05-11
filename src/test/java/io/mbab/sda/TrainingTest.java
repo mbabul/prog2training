@@ -78,14 +78,14 @@ public class TrainingTest {
     }
 
     @Test
-    public void testIsPalindrom(String test) {
+    public void testIsPalindrom() {
         assertTrue(training.isPalindrom("Kobyła ma mały bok"));
         assertTrue(training.isPalindrom("A to kanapa pana Kota"));
         assertFalse(training.isPalindrom("To nie jest palindrom"));
     }
 
     @Test
-    public void testIsAnagram(String test) {
+    public void testIsAnagram() {
         assertTrue(training.isAnagram("Tom Marvolo Riddle", "I am Lord Voldemort"));
         assertTrue(training.isAnagram("beztalenciem", "mecz nie balet"));
     }
