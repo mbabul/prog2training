@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -74,6 +77,11 @@ public class TrainingTest {
 
     @Test
     public void testFindCommons() {
+        long start = System.currentTimeMillis();
+        training.findCommons(IntStream.range(1, 1000000).toArray(), IntStream.range(999999, 2000000).toArray());
+        long stop = System.currentTimeMillis();
+
+        System.out.println(stop - start);
         assertArrayEquals(new int[] {3}, training.findCommons(new int[] {1, 4, 6, 8, 3}, new int[] {0, 5, 3, 7, 2, 9}));
         assertArrayEquals(new int[] {2, 9}, training.findCommons(new int[] {10, 2, 5, 7, 9}, new int[] {2, 9, 1}));
     }
@@ -93,10 +101,18 @@ public class TrainingTest {
 
     @Test
     public void testRemoveDuplicates() {
-        assertIterableEquals(Arrays.asList("jeden", "dwa", "trzy", "pięć", "jedenaście"),
-                training.removeDuplicates(Arrays.asList("jeden", "dwa", "trzy", "dwa", "pięć", "jedenaście")));
-        assertIterableEquals(Arrays.asList(1, 2, 3, 5, 11),
-                training.removeDuplicates(Arrays.asList(1, 2, 3, 5, 2, 11)));
+        Collection<String> noDuplicates = Arrays.asList("jeden", "dwa", "trzy", "pięć", "jedenaście");
+        Collection<String> removedDuplicates = (Collection<String>) training.removeDuplicates(Arrays.asList("jeden", "dwa", "trzy", "dwa", "pięć", "jedenaście"));
+
+        assertTrue(noDuplicates.size() == removedDuplicates.size());
+        assertTrue(noDuplicates.containsAll(removedDuplicates));
+
+        Collection<Integer> noDuplicates2 = Arrays.asList(1, 2, 3, 5, 11);
+        Collection<Integer> removedDuplicates2 = (Collection<Integer>) training.removeDuplicates(Arrays.asList(1, 2, 3, 5, 2, 11));
+
+        assertTrue(noDuplicates2.size() == removedDuplicates2.size());
+        assertTrue(noDuplicates2.containsAll(removedDuplicates2));
+
     }
 
     @Test
