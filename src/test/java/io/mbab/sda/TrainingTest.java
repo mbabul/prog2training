@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -124,10 +124,20 @@ public class TrainingTest {
 
     @Test
     public void testIsFlatten() {
+        long start = System.currentTimeMillis();
+        training.flatten(
+                Arrays.asList(
+                        IntStream.range(0, 500000).boxed().collect(Collectors.toList()),
+                        IntStream.range(500001, 800000).boxed().collect(Collectors.toList())));
+
+        long stop = System.currentTimeMillis();
+        System.out.println(stop - start);
+
         assertIterableEquals(
                 Arrays.asList(1, 2, 3, 4, 5, 6),
                 training.flatten(Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6))));
     }
+
     @Test
     public void testRemoveInvalidEmails() {
         assertIterableEquals(
@@ -140,6 +150,12 @@ public class TrainingTest {
         assertEquals("1", training.findElement("1", Arrays.asList("2", "7", "55", "c", "1")));
         assertThrows(ElementNotFoundException.class, () -> training.findElement("10", Arrays.asList("2", "7", "55", "c", "1")));
     }
+
+    // aby przeprowadzić test Validatora, wgrać go jako lokalną zależność maven, oraz odkomentować w pom.xml
+//    @Test
+//    public void testValidator() {
+//        assertTrue(Validator.pesel("tu wpisz poprawny pesel"));
+//    }
 
 
 }
